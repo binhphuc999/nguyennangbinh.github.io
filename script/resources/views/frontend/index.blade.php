@@ -1,0 +1,45 @@
+@extends('layouts.user')
+
+@section('title', $tran['Homepage Title'] . " | ")
+
+@section('content')
+
+@include('frontend.home')
+
+<!-- Messages Section Start -->
+<section class="messages section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-12">
+        {!!$setdata['left_ad']!!}
+      </div>
+      <div class="col-md-8 col-sm-12 mb-3">
+        <div class="card mb-3 mt-3">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-12 d_show">{{__('INBOX')}}</div>
+              <div class="col-4 d_hide">{{$tran['Sender']}}</div>
+              <div class="col-6 d_hide">{{$tran['Subject']}}</div>
+              <div class="col-2 text-right d_hide">{{$tran['Veiw']}}</div>
+            </div>
+          </div>
+          <div class="card-body" id="mailbox">
+            <div class="mailbox-empty">
+              <i class="fas fa-sync-alt fa-spin"></i>
+              <h3>{{$tran['Your inbox is empty']}}</h3>
+              <p>{{$tran['Waiting for incoming emails']}}</p>
+            </div>
+          </div>
+        </div>
+        {!!$setdata['bottom_ad']!!}
+      </div>
+      <div class="col-md-2  col-sm-12">
+        {!!$setdata['right_ad']!!}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Messages Section End -->
+
+@include('frontend.features')
+@endsection
